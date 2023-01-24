@@ -9,6 +9,14 @@
 
         @include('admin.partials.action-in-page')
 
+        @if ($project->technologies)
+            <div class="mb-3">
+                @foreach ($project->technologies as $technology)
+                    <span class="badge text-bg-success">{{ $technology->name }}</span>
+                @endforeach
+            </div>
+        @endif
+
         @if ($project->type)
             <div class="mb-3">
                 <span class="badge text-bg-success">{{ $project->type->name }}</span>
