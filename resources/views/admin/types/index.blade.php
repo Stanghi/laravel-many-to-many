@@ -33,28 +33,28 @@
                 <tr>
                     <th scope="col">Category</th>
                     <th scope="col">Projects count</th>
-                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($types as $type)
                     <tr>
-                        <td>
-                            <form action="{{ route('admin.types.update', $type) }}">
+                        <td class="d-flex">
+                            <form action="{{ route('admin.types.update', $type) }}" method="POST">
                                 @csrf
                                 @method('PATCH')
                                 <input class="border-0" type="text" name="name" value="{{ $type->name }}">
+                                <button type="submit" class="btn btn-outline-primary me-3">Update</button>
                             </form>
-                        </td>
-                        <td>{{ count($type->projects) }}</td>
-                        <td class="d-flex">
-                            <button type="submit" class="btn btn-outline-primary me-3">Update</button>
+
                             @include('admin.partials.form-delete', [
                                 'route' => 'types',
                                 'message' => "Confermi l'eliminatione di $type->name ?",
                                 'entity' => $type,
                             ])
+
                         </td>
+
+                        <td>{{ count($type->projects) }}</td>
                     </tr>
                 @endforeach
             </tbody>

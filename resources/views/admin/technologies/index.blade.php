@@ -33,28 +33,28 @@
                 <tr>
                     <th scope="col">Tecnology</th>
                     <th scope="col">Projects count</th>
-                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($technologies as $tecnology)
+                @foreach ($technologies as $technology)
                     <tr>
-                        <td>
-                            <form action="{{ route('admin.technologies.update', $tecnology) }}">
+                        <td class="d-flex">
+                            <form action="{{ route('admin.technologies.update', $technology) }}" method="POST">
                                 @csrf
                                 @method('PATCH')
-                                <input class="border-0" type="text" name="name" value="{{ $tecnology->name }}">
+                                <input class="border-0" type="text" name="name" value="{{ $technology->name }}">
+                                <button type="submit" class="btn btn-outline-primary me-3">Update</button>
                             </form>
-                        </td>
-                        <td>{{ count($tecnology->projects) }}</td>
-                        <td class="d-flex">
-                            <button type="submit" class="btn btn-outline-primary me-3">Update</button>
+
                             @include('admin.partials.form-delete', [
                                 'route' => 'technologies',
-                                'message' => "Confermi l'eliminatione di $tecnology->name ?",
-                                'entity' => $tecnology,
+                                'message' => "Confermi l'eliminatione di $technology->name ?",
+                                'entity' => $technology,
                             ])
+
                         </td>
+
+                        <td>{{ count($technology->projects) }}</td>
                     </tr>
                 @endforeach
             </tbody>
