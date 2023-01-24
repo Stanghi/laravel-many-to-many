@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\Admin\TechnologyController;
 use App\Http\Controllers\Guest\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,7 @@ Route::middleware(['auth', 'verified'])
         Route::get('/projects/project-type', [ProjectsController::class, 'types_project'])->name('types_project');
         Route::resource('projects', ProjectsController::class);
         Route::resource('types', TypeController::class)->except('show', 'create', 'edit');
+        Route::resource('technologies', TechnologyController::class)->except('show', 'create', 'edit');
     });
 
 require __DIR__ . '/auth.php';

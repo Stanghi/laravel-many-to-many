@@ -23,5 +23,12 @@
                 <i class="fa-solid fa-tag"></i>Types
             </a>
         </li>
+
+        <li class="{{ request()->segment(2) == 'technologies' ? 'active' : '' }}">
+            <a href="{{ route('admin.technologies.index') }}">
+                <i class="fa-solid fa-laptop-code"></i>Technologies
+            </a>
+        </li>
+
     </ul>
 </nav>
