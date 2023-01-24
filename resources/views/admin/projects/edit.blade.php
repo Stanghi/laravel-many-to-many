@@ -65,6 +65,18 @@
             </div>
 
             <div class="mb-3">
+                <p for="date" class="form-label">Technologies</p>
+                @foreach ($technologies as $technology)
+                    <input id="{{ $technology->slug }}" type="checkbox" name="technologies[]"
+                        value="{{ $technology->id }}"
+                        @if (!$errors->all() && $project->technologies->contains($technology)) checked
+                        @elseif ($errors->all() && in_array($technology->id, old('technologies', [])))
+                            checked @endif>
+                    <label class="me-3" for="{{ $technology->slug }}">{{ $technology->name }}</label>
+                @endforeach
+            </div>
+
+            <div class="mb-3">
                 <label for="cover_image" class="form-label">Types</label>
                 <select class="form-select" name="type_id" aria-label="Default select example">
                     <option value="">Select type</option>
