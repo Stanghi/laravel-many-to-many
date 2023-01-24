@@ -1,8 +1,10 @@
 <div class="card">
     @if ($project->cover_image)
-        <img src="{{ asset('storage/' . $project->cover_image) }}" alt="{{ $project->cover_image_original }}">
+        <img class="card-img-top" src="{{ asset('storage/' . $project->cover_image) }}"
+            alt="{{ $project->cover_image_original }}">
     @else
-        <img src="https://www.umberto.it/wp-content/uploads/2022/10/placeholder.png" alt="Placeholder">
+        <img class="card-img-top" src="https://www.umberto.it/wp-content/uploads/2022/10/placeholder.png"
+            alt="Placeholder">
     @endif
 
     <div class="card-body d-flex flex-column justify-content-between">
