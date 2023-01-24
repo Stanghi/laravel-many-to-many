@@ -149,6 +149,7 @@ class ProjectsController extends Controller
     public function types_project()
     {
         $types = Type::all();
-        return view('admin.projects.types_list', compact('types'));
+        $technologies = Technology::all();
+        return view('admin.projects.types_list', compact('types', 'technologies'));
     }
 }
