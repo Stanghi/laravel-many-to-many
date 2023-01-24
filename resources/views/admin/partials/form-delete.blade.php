@@ -1,5 +1,5 @@
-<form action="{{ route('admin.projects.destroy', $project) }}" method="POST"
-    onsubmit="return confirm('confermi l\'eliminazione di {{ $project->title }}')">
+<form action="{{ route('admin.' . $route . '.destroy', $entity) }}" method="POST"
+    onsubmit="return confirm('confermi l\'eliminazione?')">
     @csrf
     @method('DELETE')
 

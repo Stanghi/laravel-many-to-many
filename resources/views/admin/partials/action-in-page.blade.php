@@ -20,7 +20,13 @@
                     <i class="fa-solid fa-pen"></i>
                 </a>
             @endif
-            @include('admin.partials.form-delete', ['project' => $project])
+
+            @include('admin.partials.form-delete', [
+                'route' => 'projects',
+                'message' => "Confermi l'eliminatione di $project->title ?",
+                'entity' => $project,
+            ])
+
         @endif
     </div>
 </div>

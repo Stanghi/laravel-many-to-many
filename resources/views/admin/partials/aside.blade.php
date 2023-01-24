@@ -18,8 +18,8 @@
             </a>
         </li>
 
-        <li class="">
-            <a href="#">
+        <li class="{{ request()->segment(2) == 'types' ? 'active' : '' }}">
+            <a href="{{ route('admin.types.index') }}">
                 <i class="fa-solid fa-tag"></i>Types
             </a>
         </li>
